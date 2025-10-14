@@ -1,0 +1,11 @@
+ID,Name,Assignment,Status
+1001,Alice,Assignment_1,submitted
+1002,Bob,Assignment_1,not
+1003,Charlie,Assignment_1,submitted
+1004,David,Assignment_1,not
+1005,Eve,Assignment_1,not
+1006,Faith,Assignment_1,not
+1007,George,Assignment_1,submitted
+1008,Hannah,Assignment_1,not
+1009,Isaac,Assignment_1,not
+1010,Jane,Assignment_1,submitted
