@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# copilot_shell_script.sh
-# Changes the assignment name in config.env and reruns the app
 set -euo pipefail
 
 read -rp "Enter the new assignment name (e.g., Assignment_2): " new_assignment
@@ -16,7 +14,7 @@ if [ ! -f "$config_file" ]; then
   exit 1
 fi
 
-# Replace the assignment name in config.env
+
 sed -i "s/^ASSIGNMENT=.*/ASSIGNMENT=$new_assignment/" "$config_file"
 
 echo "Assignment name changed to $new_assignment!"

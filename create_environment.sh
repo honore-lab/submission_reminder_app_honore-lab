@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
-# create_environment.sh
-# Creates submission_reminder_honore environment
 set -euo pipefail
 
 username="honore"
 rootdir="submission_reminder_${username}"
 echo "Creating environment in: ${rootdir}"
 
-# Create structure
+
 mkdir -p "${rootdir}/config"
 mkdir -p "${rootdir}/scripts"
 mkdir -p "${rootdir}/data"
 
-# Create config.env
+
 cat > "${rootdir}/config/config.env" <<'EOF'
 ASSIGNMENT=Assignment_1
 DUE_DATE=2025-12-31
 NOTIFY_THRESHOLD_DAYS=2
 EOF
 
-# Create functions.sh
+
 cat > "${rootdir}/scripts/functions.sh" <<'EOF'
 #!/usr/bin/env bash
 # functions.sh - helper functions
@@ -40,7 +38,7 @@ find_pending() {
 }
 EOF
 
-# Create reminder.sh
+
 cat > "${rootdir}/scripts/reminder.sh" <<'EOF'
 #!/usr/bin/env bash
 # reminder.sh - checks student submissions
@@ -60,22 +58,22 @@ echo "Students who HAVE NOT submitted:"
 find_pending "$data_file" "$ASSIGNMENT" || echo "No pending submissions!"
 EOF
 
-# Create submissions.txt (10 students)
+
 cat > "${rootdir}/data/submissions.txt" <<'EOF'
 ID,Name,Assignment,Status
-1001,Alice,Assignment_1,submitted
+1001,drake,Assignment_1,submitted
 1002,Bob,Assignment_1,not
-1003,Charlie,Assignment_1,submitted
+1003,jacky,Assignment_1,submitted
 1004,David,Assignment_1,not
 1005,Eve,Assignment_1,not
 1006,Faith,Assignment_1,not
-1007,George,Assignment_1,submitted
+1007,otu,Assignment_1,submitted
 1008,Hannah,Assignment_1,not
 1009,Isaac,Assignment_1,not
-1010,Jane,Assignment_1,submitted
+1010,mike,Assignment_1,submitted
 EOF
 
-# Create startup.sh
+
 cat > "${rootdir}/scripts/startup.sh" <<'EOF'
 #!/usr/bin/env bash
 # startup.sh - starts the reminder app
@@ -84,10 +82,10 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 bash "${script_dir}/reminder.sh"
 EOF
 
-# Add empty image file
+
 touch "${rootdir}/image.png"
 
-# Make all scripts executable
+
 chmod +x "${rootdir}/scripts/"*.sh
 
 echo "Environment created successfully!"
